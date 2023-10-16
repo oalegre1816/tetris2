@@ -1,16 +1,20 @@
 const express = require("express");
 const app = express();
-const port = 3000;
-const ejemploRoutes = require("./routes/route");
+const path = require("path");
 
-// Configurar vistas EJS
+// Configuración de vistas EJS
 app.set("view engine", "ejs");
-app.set("views", "views");
+app.set("views", path.join(__dirname, "views"));
 
-// Usar las rutas definidas en ejemploRoutes
-app.use("/", ejemploRoutes);
+// Configuración para servir archivos estáticos
+app.use(express.static(path.join(__dirname, "public"))); // "public" es la carpeta donde se encuentran los archivos estáticos
+
+// Configura tus rutas
+const routes = require("./routes/route.js");
+app.use("/", routes);
 
 // Iniciar el servidor
+const port = 3000; // Puedes usar un puerto diferente si lo deseas
 app.listen(port, () => {
   console.log(`Servidor en ejecución en http://localhost:${port}`);
 });

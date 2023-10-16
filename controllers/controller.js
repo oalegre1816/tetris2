@@ -5,4 +5,6 @@ ejemploController.index = (req, res) => {
   res.render("view"); // Renderiza una vista llamada 'index'
 };
 
+
+
 module.exports = ejemploController;
