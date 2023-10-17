@@ -6,9 +6,7 @@ router.get("/", (req, res) => {
   res.render("inicio"); // Renderiza la vista 'inicio.ejs'
 });
 
-// Ruta a la pagina de tetris
-router.get("/tetris", (req, res) => {
-  res.render("tetris"); // Renderiza la vista 'tetris.ejs'
-});
+// Ruta para el juego de Tetris, apuntando al controlador
+router.use("/tetris", require("../controllers/tetrisController"));
 
 module.exports = router;

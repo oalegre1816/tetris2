@@ -7,7 +7,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 // Configuración para servir archivos estáticos
-app.use(express.static(path.join(__dirname, "public"))); // "public" es la carpeta donde se encuentran los archivos estáticos
+app.use(express.static(path.join(__dirname, "public")));
 
 // Configura tus rutas
 const routes = require("./routes/route.js");
